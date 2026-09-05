@@ -1,0 +1,24 @@
+#!/bin/bash
+set -e
+
+cd "$(dirname "$0")"
+
+echo "=== Starting wavesstack services ==="
+
+echo "Starting Tailscale..."
+sudo tailscale up
+
+sleep 10
+
+echo "Starting Navidrome server..."
+docker compose -f ./navidrome/docker-compose.yml up -d
+
+sleep 5
+
+echo "Starting music downloader..."
+docker compose -f ./music-downloader/docker-compose.yml up -d
+
+echo "Starting library tidier..."
+docker compose -f ./library-tidy/docker-compose.yml up -d
+
+echo "=== All services are up ==="

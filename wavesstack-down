@@ -1,0 +1,20 @@
+#!/bin/bash
+set -e
+
+cd "$(dirname "$0")"
+
+echo "=== Stopping wavesstack services ==="
+
+echo "Stopping music downloader..."
+docker compose -f ./music-downloader/docker-compose.yml down
+
+echo "Stopping Navidrome server..."
+docker compose -f ./navidrome/docker-compose.yml down
+
+echo "Stopping library tidier..."
+docker compose -f ./library-tidy/docker-compose.yml down
+
+#echo "Disabling Tailscale..."
+#sudo tailscale down
+
+echo "=== All services have been stopped ==="

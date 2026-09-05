@@ -1,0 +1,11 @@
+services:
+  cleaner:
+    image: alpine
+    container_name: library-tidy-app
+    environment:
+      - MAX_SIZE_GB=${MLIB_MAX_SIZE_GB:-20.0}  # (default 20GB)
+    volumes:
+      - ./../music-library:/music
+      - ./tidier.sh:/tidier.sh:ro
+    restart: unless-stopped
+    command: sh /tidier.sh

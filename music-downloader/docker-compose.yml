@@ -1,0 +1,12 @@
+version: '3.8'
+
+services:
+  web:
+    build: .
+    container_name: music-downloader-app
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./requests.log:/app/requests.log
+      - ./../music-library:/app/downloads
+    restart: unless-stopped
