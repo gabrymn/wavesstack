@@ -104,6 +104,6 @@ To stream or download new music directly to your smartphone (iOS/Android):
    * **Server URL:** `http://<TAILSCALE_IP>:4533` *(Get IP with `tailscale ip -4` on the server)*
    * Enter your Navidrome credentials to access, stream, and download music locally to your phone.
 4. **Download New Music from Mobile:**
-   * **Web Interface:** Access **Music Downloader** at `http://<TAILSCALE_IP>:8080/process?URL=[youtube or youtube music link]` via your mobile browser.
+   * **Web Interface:** Access **Music Downloader** at `http://<TAILSCALE_IP>:8080/process?URL=[youtube link | youtube-music link | spotify link]` via your mobile browser.
    * It will download directly into your Wavesstack library (Navidrome will auto-scan the new files).
 
